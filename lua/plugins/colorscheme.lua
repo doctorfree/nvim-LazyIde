@@ -1,61 +1,83 @@
+-- Currently supported themes:
+--   nightfox, tundra, tokyonight, catppuccin, dracula, kanagawa, onedarkpro
+--
+
 return {
   {
-    "rebelot/kanagawa.nvim",
-    lazy = true,
-    opts = {
-      transparent = true,
-      theme = "wave",
-    },
+    "EdenEast/nightfox.nvim",
+    lazy = false,
+    priority = 1000,
+    config = function()
+      require("themes.nightfox")
+    end,
   },
   {
-    "EdenEast/nightfox.nvim",
-    opts = {
-      options = {
-        transparent = true,
-        styles = {
-          comments = "italic",
-          keywords = "bold",
-          types = "italic,bold",
-        },
-      },
-    },
-    lazy = true,
+    "loctvl842/monokai-pro.nvim",
+    lazy = false,
+    branch = "master",
+    priority = 1000,
+    config = function()
+      require("themes.monokai-pro")
+    end,
+  },
+  {
+    "olimorris/onedarkpro.nvim",
+    lazy = false,
+    priority = 1000,
+    config = function()
+      require("themes.onedarkpro")
+    end,
+  },
+  {
+    "sam4llis/nvim-tundra",
+    lazy = false,
+    priority = 1000,
+    config = function()
+      require("themes.tundra")
+    end,
+  },
+  {
+    "folke/tokyonight.nvim",
+    lazy = false,
+    priority = 1000,
+    branch = "main",
+    config = function()
+      require("themes.tokyonight")
+    end,
   },
   {
     "Mofiqul/dracula.nvim",
+    lazy = false,
+    priority = 1000,
     config = function()
-      -- Disable spell check as it's too red
-      vim.o.spell = false
-
-      local dracula = require("dracula")
-      dracula.setup({
-        transparent_bg = true, -- default false
-        -- set italic comment
-        italic_comment = true, -- default false
-        overrides = {},
-      })
+      require("themes.dracula")
     end,
-    lazy = true,
   },
-
-  -- default is tokyonight
   {
-    "folke/tokyonight.nvim",
-    opts = {
-      style = "moon",
-      transparent = true,
-      styles = {
-        sidebars = "transparent",
-        floats = "transparent",
-      },
-    },
+    "rebelot/kanagawa.nvim",
+    lazy = false,
+    priority = 1000,
+    config = function()
+      require("themes.kanagawa")
+    end,
   },
-
-  -- set LazyVim to load colorscheme
   {
-    "LazyVim/LazyVim",
-    opts = {
-      -- colorscheme = "dracula",
-    },
+    "neanias/everforest-nvim",
+    name = "everforest",
+    version = false,
+    lazy = false,
+    priority = 1000,
+    config = function()
+      require("themes.everforest")
+    end,
+  },
+  {
+    "catppuccin/nvim",
+    name = "catppuccin",
+    lazy = false,
+    priority = 1000,
+    config = function()
+      require("themes.catppuccin")
+    end,
   },
 }
