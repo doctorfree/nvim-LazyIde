@@ -23,11 +23,11 @@ return {
       dashboard.button("g", " " .. " Find text", ":Telescope live_grep <CR>"),
       dashboard.button("m", " " .. " Open Mark", ":Telescope harpoon marks <CR>"),
       dashboard.button("s", "勒" .. " Last Session", [[:lua require("persistence").load({ last = true }) <cr>]]),
-      dashboard.button("c", " " .. " Config", ":e $MYVIMRC <CR>"),
+      dashboard.button("c", " " .. " Config", ":e ~/.config/nvim-LazyIde/lua/configuration.lua <CR>"),
       dashboard.button("l", "鈴" .. " Lazy", ":Lazy<CR>"),
       dashboard.button("q", " " .. " Quit", ":qa<CR>"),
     }
-    dashboard.section.footer.val = "productsway.com"
+    dashboard.section.footer.val = "github.com/doctorfree/nvim-lazyman"
 
     return dashboard
   end,
