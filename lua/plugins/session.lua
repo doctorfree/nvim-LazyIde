@@ -12,7 +12,7 @@ return {
     },
     opts = {
       use_git_branch = true,
-      save_dir = vim.fn.expand(vim.fn.stdpath("data") .. "/sessions/"), -- Resolves to ~/.local/share/nvim/my-sessions/
+      save_dir = vim.fn.expand(vim.fn.stdpath("data") .. "/sessions/"), -- Resolves to ~/.local/share/nvim-LazyIde/my-sessions/
       ignored_dirs = {
         "~/Projects/research/",
         "~/.local/nvim",
