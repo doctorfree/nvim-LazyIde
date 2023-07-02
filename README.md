@@ -4,57 +4,28 @@
 
 [![IT Man - Talk #35 #Neovim IDE for Web Developer](https://i.ytimg.com/vi/3EbgMJ-RcWY/hqdefault.jpg)](https://www.youtube.com/watch?v=3EbgMJ-RcWY)
 
-## Install Neovim
+**[Note:]** This Neovim configuration is based on the starter template at
+https://github.com/jellydn/lazy-nvim-ide and is extensively enhanced for
+use with [Lazyman](https://github.com/doctorfree/nvim-lazyman).
 
-The easy way is using [MordechaiHadad/bob: A version manager for neovim](https://github.com/MordechaiHadad/bob).
+## Install Lazyman
 
-```sh
-bob install stable
-bob use stable
+```bash
+git clone https://github.com/doctorfree/nvim-lazyman $HOME/.config/nvim-Lazyman
+$HOME/.config/nvim-Lazyman/lazyman.sh
 ```
 
-## Install the config
+## Install the LazyIde Neovim configuration
 
-Make sure to remove or move your current `nvim` directory
-
-```sh
-git clone https://github.com/jellydn/lazy-nvim-ide.git ~/.config/nvim
+```bash
+lazyman -w LazyIde
 ```
 
-Run `nvim` and wait for the plugins to be installed
+## Configure the shell environment
 
-## Get healthy
-
-Open `nvim` and enter the following:
-
-```
-:checkhealth
-```
-
-## Fonts
-
-I recommend using the following repo to get a "Nerd Font" (Font that supports icons)
-
-[getnf](https://github.com/ronniedroid/getnf)
-
-## Try with Docker
-
-```
-docker run -w /root -it --rm alpine:latest sh -uelic '
-  apk add git nodejs npm neovim ripgrep build-base make musl-dev go --update
-  go install github.com/jesseduffield/lazygit@latest
-  git clone https://github.com/jellydn/lazy-nvim-ide ~/.config/nvim
-  nvim
-  '
-```
-
-## Uninstall
-
-```sh
-  rm -rf ~/.config/nvim
-  rm -rf ~/.local/share/nvim
-  rm -rf ~/.cache/nvim
-  rm -rf ~/.local/state/nvim
+```bash
+export NVIM_APPNAME="nvim-LazyIde"
+alias wvim="NVIM_APPNAME=nvim-LazyIde nvim"
 ```
 
 ## Screenshots
@@ -64,7 +35,28 @@ docker run -w /root -it --rm alpine:latest sh -uelic '
 ## Tips
 
 - Improve key repeat on Mac OSX, need to restart
-```sh 
+```sh
 defaults write NSGlobalDomain KeyRepeat -int 1
 defaults write NSGlobalDomain InitialKeyRepeat -int 14
 ```
+
+## Authors
+
+👤 **Ronald Joe Record**
+
+- Website: https://ronrecord.com/
+- Twitter: [@ronrecord](https://twitter.com/ronrecord)
+- Github: [@doctorfree](https://github.com/doctorfree)
+
+👤 **Huynh Duc Dung**
+
+- Website: https://productsway.com/
+- Twitter: [@jellydn](https://twitter.com/jellydn)
+- Github: [@jellydn](https://github.com/jellydn)
+
+## Show your support
+
+Give a ⭐️ if this project helped you!
+
+[![paypal](https://img.shields.io/badge/PayPal-00457C?style=for-the-badge&logo=paypal&logoColor=white)](https://paypal.me/ronrecord)
+[![buymeacoffee](https://img.shields.io/badge/Buy_Me_A_Coffee-FFDD00?style=for-the-badge&logo=buy-me-a-coffee&logoColor=black)](https://www.buymeacoffee.com/doctorfree)
