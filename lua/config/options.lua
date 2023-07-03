@@ -44,8 +44,6 @@ end
 
 vim.g.loaded_netrw = 1
 vim.g.loaded_netrwPlugin = 1
-vim.g.mapleader = settings.mapleader
-vim.g.maplocalleader = settings.maplocalleader
 -- Register the 'text' filetype with Treesitter to be highlighted like markdown
 vim.treesitter.language.register('markdown', 'text')
 

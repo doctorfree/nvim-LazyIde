@@ -34,17 +34,16 @@ conf.theme_style = "moon"
 conf.enable_transparent = true
 
 -- GLOBAL OPTIONS CONFIGURATION
--- Some prefer space as the map leader, but why
-conf.mapleader = ","
-conf.maplocalleader = ","
+conf.mapleader = " "
+conf.maplocalleader = " "
 -- Toggle global status line
 conf.global_statusline = true
 -- set numbered lines
-conf.number = false
+conf.number = true
 -- enable mouse see :h mouse
 conf.mouse = "nv"
 -- set relative numbered lines
-conf.relative_number = false
+conf.relative_number = true
 -- always show tabs; 0 never, 1 only if at least two tab pages, 2 always
 -- see enable_tabline below to disable or enable the tabline plugin
 conf.showtabline = 2
@@ -79,7 +78,7 @@ conf.enable_neoai = false
 conf.enable_codeium = false
 --
 -- Enable the header of the dashboard
-conf.enable_dashboard_header = false
+conf.enable_dashboard_header = true
 -- File explorer tree plugin: neo-tree, nvim-tree, or none
 conf.file_tree = "neo-tree"
 -- Replace the UI for messages, cmdline and the popupmenu
