@@ -34,8 +34,8 @@ conf.theme_style = "moon"
 conf.enable_transparent = true
 
 -- GLOBAL OPTIONS CONFIGURATION
-conf.mapleader = " "
-conf.maplocalleader = " "
+conf.mapleader = ","
+conf.maplocalleader = ","
 -- Toggle global status line
 conf.global_statusline = true
 -- set numbered lines
