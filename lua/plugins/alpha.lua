@@ -1,3 +1,5 @@
+local settings = require("configuration")
+
 return {
   "goolord/alpha-nvim",
   event = "VimEnter",
@@ -13,6 +15,9 @@ return {
       [[      ╚═╝   ╚═╝       ╚═╝     ╚═╝╚═╝  ╚═╝╚═╝  ╚═══╝     ]],
       [[                                                        ]],
     }
+    if settings.enable_dashboard_header == false then
+      logo = {}
+    end
 
     dashboard.section.header.val = logo
     dashboard.section.buttons.val = {
