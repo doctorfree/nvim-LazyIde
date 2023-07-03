@@ -106,31 +106,6 @@ conf.enable_alacritty = false
 conf.enable_wezterm = false
 -- Enable smooth scrolling with neoscroll plugin
 conf.enable_smooth_scrolling = true
--- treesitter parsers to be installed
-conf.treesitter_ensure_installed = {
-  "bash",
-  "c",
-  "go",
-  "html",
-  "java",
-  "javascript",
-  "json",
-  "lua",
-  "luadoc",
-  "luap",
-  "markdown",
-  "markdown_inline",
-  "query",
-  "python",
-  "regex",
-  "rust",
-  "toml",
-  "tsx",
-  "typescript",
-  "vim",
-  "vimdoc",
-  "yaml",
-}
 -- enable greping in hidden files
 conf.telescope_grep_hidden = true
 -- Show diagnostics, can be one of "none", "icons", "popup". Default is "popup"
@@ -138,5 +113,71 @@ conf.telescope_grep_hidden = true
 --   "icons": only an icon will show, use ',de' to see the diagnostic
 --   "popup": an icon will show and a popup with the diagnostic will appear
 conf.show_diagnostics = "icons"
+-- treesitter parsers to be installed
+conf.treesitter_ensure_installed = {
+  "bash",
+  "c",
+  "css",
+  "go",
+  "graphql",
+  "html",
+  "java",
+  "javascript",
+  "json",
+  "json5",
+  "jsonc",
+  "lua",
+  "luadoc",
+  "luap",
+  "markdown",
+  "markdown_inline",
+  "prisma",
+  "proto",
+  "python",
+  "query",
+  "regex",
+  "rust",
+  "svelte",
+  "toml",
+  "tsx",
+  "typescript",
+  "vim",
+  "vimdoc",
+  "yaml",
+}
+
+conf.mason_servers = {
+  "lua_ls",
+  -- web
+  "jsonls",
+  "yamlls",
+  "html",
+  "cssls",
+  "tailwindcss",
+  "jsonls",
+  -- rust
+  "rust_analyzer",
+  -- go
+  "gopls",
+  -- svelte
+  "svelte",
+  -- python
+  "pyright",
+  "ruff_lsp",
+}
+
+conf.mason_ensure_installed = {
+  "stylua",
+  -- formatters
+  "eslint_d",
+  "prettierd",
+  -- code spell
+  "codespell",
+  "misspell",
+  -- rustywind for tailwindcss
+  "rustywind",
+  -- python
+  "ruff",
+}
 
 return conf
