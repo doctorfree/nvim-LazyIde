@@ -32,12 +32,14 @@ return {
   {
     "glepnir/lspsaga.nvim",
     event = "LspAttach",
-    config = true,
     dependencies = {
       { "nvim-tree/nvim-web-devicons" },
       -- Please make sure you install markdown and markdown_inline parser
       { "nvim-treesitter/nvim-treesitter" },
     },
+    config = function()
+      require("config.lspsaga")
+    end,
   },
   {
     -- Displaying references and definition infos upon functions like JB's IDEA.
@@ -66,5 +68,10 @@ return {
     event = "BufRead",
     dependencies = { "nvim-treesitter/nvim-treesitter", "neovim/nvim-lspconfig" },
     config = true,
+  },
+  {
+    "weilbith/nvim-code-action-menu",
+    cmd = "CodeActionMenu",
+    lazy = true,
   },
 }
