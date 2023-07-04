@@ -1,61 +1,30 @@
-local settings = require("configuration")
-local servers = settings.mason_servers
-local ensured = settings.mason_ensure_installed
-
 return {
-  -- cmdline tools and lsp servers
   {
     "williamboman/mason.nvim",
-    opts = {
-      ensure_installed = ensured
+    build = ":MasonUpdate",
+    cmd = "Mason",
+    lazy = false,
+    keys = { { "<leader>M", "<cmd>Mason<cr>", desc = "Mason Menu" } },
+  },
+
+  {
+    "williamboman/mason-lspconfig.nvim",
+    dependencies = {
+      "williamboman/mason.nvim",
     },
-    ---@param opts MasonSettings | {ensure_installed: string[]}
-    config = function(_, opts)
-      require("mason").setup(opts)
-      require("mason-lspconfig").setup({
-        ensure_installed = servers,
-        automatic_installation = true,
+  },
+
+  {
+    "RubixDev/mason-update-all",
+    cmd = "MasonUpdateAll",
+    config = function()
+      require("mason-update-all").setup()
+      vim.api.nvim_create_autocmd("User", {
+        pattern = "MasonUpdateAllComplete",
+        callback = function()
+          print("mason-update-all has finished")
+        end,
       })
-
-      local mr = require("mason-registry")
-      local function ensure_installed()
-        for _, tool in ipairs(opts.ensure_installed) do
-          local p = mr.get_package(tool)
-          if not p:is_installed() then
-            p:install()
-          end
-        end
-      end
-      if mr.refresh then
-        mr.refresh(ensure_installed)
-      else
-        ensure_installed()
-      end
-
-      -- load lsp config
-      local lspconfig_status_ok, lspconfig = pcall(require, "lspconfig")
-      if not lspconfig_status_ok then
-        return
-      end
-
-      local lsp_opts = {}
-
-      for _, server in pairs(servers) do
-        lsp_opts = {
-          on_attach = require("plugins.lsp.handlers").on_attach,
-          capabilities = require("plugins.lsp.handlers").capabilities,
-        }
-
-        server = vim.split(server, "@")[1]
-
-        -- load server specific config if exists
-        local require_ok, conf_opts = pcall(require, "plugins.lsp.settings." .. server)
-        if require_ok then
-          lsp_opts = vim.tbl_deep_extend("force", conf_opts, opts)
-        end
-
-        lspconfig[server].setup(lsp_opts)
-      end
     end,
   },
 }

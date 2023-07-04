@@ -1,14 +1,7 @@
--- disable lsp-inlayhints if that is nightly version, will remove when 0.10.0 is stable
-local enabled_inlay_hints = true
-if vim.fn.has("nvim-0.10.0") == 1 then
-  enabled_inlay_hints = false
-end
-
 return {
   {
     "lvimuser/lsp-inlayhints.nvim",
     ft = { "javascript", "javascriptreact", "json", "jsonc", "typescript", "typescriptreact", "svelte" },
-    enabled = enabled_inlay_hints,
     opts = {
       debug_mode = true,
     },
