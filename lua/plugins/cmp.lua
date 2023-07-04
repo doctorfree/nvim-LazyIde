@@ -17,12 +17,6 @@ return {
           })
         end,
       },
-      -- Add Codeium support, pin to stable version due to crash on input auth key
-      {
-        "jcdickinson/codeium.nvim",
-        commit = "b1ff0d6c993e3d87a4362d2ccd6c660f7444599f",
-        config = true,
-      },
     },
     ---@param opts cmp.ConfigSchema
     opts = function(_, opts)
@@ -39,6 +33,7 @@ return {
       local sources = {
         -- move codeium to same group as copilot
         { name = "codeium", group_index = 2 },
+        { name = "copilot", group_index = 2 },
         { name = "cmp_tabnine", group_index = 3 },
       }
       opts.sources = cmp.config.sources(vim.list_extend(opts.sources, sources))
@@ -58,6 +53,10 @@ return {
 
           if entry.source.name == "codeium" then
             vim_item.kind = " [Codeium]"
+          end
+
+          if entry.source.name == "copilot" then
+            vim_item.kind = " [Copilot]"
           end
 
           -- Add tabnine icon and hide percentage in the menu

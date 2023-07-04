@@ -1,32 +1,27 @@
 local settings = require("configuration")
+local enable_copilot = settings.enable_copilot
 local copilot = {}
+local copilot_cmp = {}
 
-if settings.enable_copilot then
+if enable_copilot then
   copilot = {
-    "github/copilot.vim",
-    event = "VeryLazy",
+    "zbirenbaum/copilot.lua",
+    build = ":Copilot auth",
+    cmd = "Copilot",
+    event = "InsertEnter",
     config = function()
-      -- For copilot.vim
-      -- enable copilot for specific filetypes
-      vim.g.copilot_filetypes = {
-        ["TelescopePrompt"] = false,
-      }
-
-      vim.cmd([[
-        let g:copilot_assume_mapped = v:true
-      ]])
-
-      -- setup keymap
-      local keymap = vim.keymap.set
-      -- Silent keymap option
-      local opts = { silent = true }
-
-      -- Copilot
-      keymap("i", "<C-j>", "<Plug>(copilot-next)", opts)
-      keymap("i", "<C-k>", "<Plug>(copilot-previous)", opts)
-      keymap("i", "<C-l>", "<Plug>(copilot-suggest)", opts)
+      require("config.copilot")
+    end,
+  }
+  copilot_cmp = {
+    "zbirenbaum/copilot-cmp",
+    config = function()
+      require("copilot_cmp").setup()
     end,
   }
 end
 
-return { copilot }
+return {
+  copilot,
+  copilot_cmp,
+}

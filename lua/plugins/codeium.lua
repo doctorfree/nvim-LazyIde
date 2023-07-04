@@ -1,23 +1,18 @@
 local settings = require("configuration")
-local codeium = {}
+local enable_codeium = settings.enable_codeium
 
-if settings.enable_codeium then
+local codeium = {}
+if enable_codeium then
   codeium = {
-    "Exafunction/codeium.vim",
-    config = function()
-      vim.keymap.set("i", "<Tab>", function()
-        return vim.fn["codeium#Accept"]()
-      end, { expr = true })
-      vim.keymap.set("i", "<C-j>", function()
-        return vim.fn["codeium#CycleCompletions"](1)
-      end, { expr = true })
-      vim.keymap.set("i", "<C-k>", function()
-        return vim.fn["codeium#CycleCompletions"](-1)
-      end, { expr = true })
-      vim.keymap.set("i", "<C-x>", function()
-        return vim.fn["codeium#Clear"]()
-      end, { expr = true })
-    end,
+    "jcdickinson/codeium.nvim",
+    commit = "b1ff0d6c993e3d87a4362d2ccd6c660f7444599f",
+    cmd = "Codeium",
+    event = "InsertEnter",
+    dependencies = {
+      "nvim-lua/plenary.nvim",
+      "hrsh7th/nvim-cmp",
+    },
+    config = true,
   }
 end
 
