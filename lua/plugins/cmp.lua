@@ -36,6 +36,7 @@ return {
         { name = "copilot", group_index = 2 },
         { name = "cmp_tabnine", group_index = 3 },
       }
+      if opts.sources == nil then opts.sources = {} end
       opts.sources = cmp.config.sources(vim.list_extend(opts.sources, sources))
 
       -- format the completion menu
@@ -77,6 +78,7 @@ return {
       }
 
       -- add Ctrl-n and Ctrl-p to navigate through the completion menu
+      if opts.mapping == nil then opts.mapping = {} end
       opts.mapping = vim.tbl_extend("force", opts.mapping, {
         ["<C-n>"] = cmp.mapping(function(fallback)
           if cmp.visible() then

@@ -1,28 +1,26 @@
-return {
-  {
+local settings = require("configuration")
+local toggleterm = {}
+
+if settings.enable_toggleterm then
+  toggleterm = {
     "akinsho/toggleterm.nvim",
-    version = "*",
     opts = {
-      size = 20,
-      open_mapping = [[<c-\>]],
-      hide_numbers = true,
-      shade_terminals = true,
-      shading_factor = 2,
+      open_mapping = [[<C-\>]],
       start_in_insert = true,
-      insert_mappings = true,
-      persist_size = true,
       direction = "float",
-      close_on_exit = true,
-      shell = vim.o.shell,
+      autochdir = false,
       float_opts = {
-        border = "curved",
+        -- [ top top top - right - bottom bottom bottom - left ]
+        border = { "▄", "▄", "▄", "█", "▀", "▀", "▀", "█" },
+        winblend = 0,
+      },
+      highlights = {
+        FloatBorder = { link = "ToggleTermBorder" },
+        Normal = { link = "ToggleTerm" },
+        NormalFloat = { link = "ToggleTerm" },
       },
     },
-    keys = {
-      {
-        "<c-\\>",
-        desc = "Toggle term",
-      },
-    },
-  },
-}
+  }
+end
+
+return { toggleterm }

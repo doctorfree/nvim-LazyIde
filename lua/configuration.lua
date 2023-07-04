@@ -115,20 +115,20 @@ conf.treesitter_ensure_installed = {
   "go",
   "graphql",
   "html",
---  "java",
+  "java",
   "javascript",
   "json",
   "json5",
   "jsonc",
   "lua",
---  "luadoc",
---  "luap",
+  "luadoc",
+  "luap",
   "markdown",
   "markdown_inline",
   "prisma",
   "proto",
---  "python",
---  "query",
+  "python",
+  "query",
   "regex",
   "rust",
   "svelte",
@@ -136,8 +136,8 @@ conf.treesitter_ensure_installed = {
   "tsx",
   "typescript",
   "vim",
---  "vimdoc",
---  "yaml",
+  "vimdoc",
+  "yaml",
 }
 
 conf.mason_servers = {
@@ -148,7 +148,6 @@ conf.mason_servers = {
   "html",
   "cssls",
   "tailwindcss",
-  "jsonls",
   -- rust
   "rust_analyzer",
   -- go
@@ -158,6 +157,25 @@ conf.mason_servers = {
   -- python
   "pyright",
   "ruff_lsp",
+}
+
+conf.lspconfig_servers = {
+  "lua-language-server",
+  -- web
+  "json-lsp",
+  "yaml-language-server",
+  "html-lsp",
+  "css-lsp",
+  "tailwindcss-language-server",
+  -- rust
+  "rust_analyzer",
+  -- go
+  "gopls",
+  -- svelte
+  "svelte-language-server",
+  -- python
+  "pyright",
+  "ruff-lsp",
 }
 
 conf.mason_ensure_installed = {
