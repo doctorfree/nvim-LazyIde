@@ -27,7 +27,7 @@ $HOME/.config/nvim-Lazyman/lazyman.sh
 ### Install the LazyIde Neovim configuration
 
 ```bash
-lazyman -w LazyIde
+lazyman -L LazyIde
 ```
 
 ## Configure the shell environment
