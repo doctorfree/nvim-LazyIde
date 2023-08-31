@@ -109,35 +109,13 @@ conf.telescope_grep_hidden = true
 conf.show_diagnostics = "icons"
 -- treesitter parsers to be installed
 conf.treesitter_ensure_installed = {
-  "bash",
-  "c",
-  "css",
-  "go",
-  "graphql",
-  "html",
-  "java",
-  "javascript",
-  "json",
-  "json5",
-  "jsonc",
   "lua",
-  "luadoc",
-  "luap",
   "markdown",
   "markdown_inline",
-  "prisma",
-  "proto",
-  "python",
   "query",
   "regex",
-  "rust",
-  "svelte",
-  "toml",
-  "tsx",
-  "typescript",
   "vim",
   "vimdoc",
-  "yaml",
 }
 
 conf.mason_servers = {
